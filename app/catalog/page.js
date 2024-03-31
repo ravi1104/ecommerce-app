@@ -1,15 +1,16 @@
 import React from "react";
-import Navbar1 from "../Conponents/Navbar1";
-import Carousel from "../Conponents/Carousel";
-import ProductCard2 from "../Conponents/ProductCard2";
+import Navbar1 from "./Conponents/Navbar1";
+import Carousel from "./Conponents/Carousel";
+import ProductCard2 from "./Conponents/ProductCard2";
 
 export const metadata = {
     title: 'Catalog'
 }
 export async function getProducts() {
-    const res = await fetch(`https://fakestoreapi.com/products`)
+    const res = await fetch(`https://fakestoreapi.com/products?limit=10`)
     const data = await res.json()
     return data
+
 }
 async function first() {
     const products = await getProducts();
@@ -17,7 +18,7 @@ async function first() {
     return (
         <>
             <Navbar1 />
-            <Carousel initialProducts={products} ProductCard={ProductCard2} Catalog={Carousel}/>
+            <Carousel initialProducts={products} ProductCard={ProductCard2} Catalog={Carousel} />
         </>
     )
 }

@@ -11,23 +11,22 @@ const Navbar1 = () => {
   const toggleLinksVisibility = () => {
     setAreLinksVisible(!areLinksVisible);
   };
-  function toggleModal(){
+  function toggleModal() {
     setModal(!modal);
-    console.log("modal");
   }
   return (
     <nav className="bg-gray-800 p-4 relative z-10 mb-5">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-xl sm:text-right font-bold ">
           <Link href="/" className="text-white hover:text-gray-300">GG Shop</Link></div>
-        <span  className="sm:hidden" onClick={toggleLinksVisibility} >
-          <FontAwesomeIcon  className="text-white w-8 text-lg cursor-pointer" icon={faEllipsisVertical} />
+        <span className="sm:hidden" onClick={toggleLinksVisibility} >
+          <FontAwesomeIcon className="text-white w-8 text-lg cursor-pointer" icon={faEllipsisVertical} />
         </span>
         <span className="hidden sm:inline text-white">
           Navbar Type 1
         </span>
         <ul className={`hidden sm:flex flex-col sm:flex-row space-x-0 sm:space-x-4`}>
-          <li onClick={()=>toggleModal()}>
+          <li onClick={() => toggleModal()}>
             <FontAwesomeIcon className="cursor-pointer text-white" icon={faCartShopping} />
           </li>
           <li>
@@ -50,7 +49,7 @@ const Navbar1 = () => {
           </li>
         </ul>
       </div>
-      <Modal isOpen={modal} onClose={toggleModal}/>
+      <Modal isOpen={modal} onClose={toggleModal} />
     </nav>
   );
 };

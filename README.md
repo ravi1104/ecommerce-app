@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce Application Readme
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This e-commerce application provides users with a seamless shopping experience. It consists of two main pages: the Catalog Page (/catalog) and the Settings Page (/settings). The Catalog Page is server-side rendered (SSR), while the Settings Page can be client-side rendered (CSR) if needed.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Catalog Page:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Navigation Bars:** Users can switch between two navigation bars, controlled from the Settings Page.
+- **Display Options:**
+  - **Carousel:** Users can navigate through products using a carousel with buttons on both ends.
+  - **View All:** Users can view all products in a paginated manner, with infinite scroll based on user activity.
+- **Product Card Variants:** Users can switch between two variants of product cards, controlled from the Settings Page.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Settings Page:
 
-## Learn More
+- **Navigation Bar Type:** Users can control the type of navigation bar (NavBar1 or NavBar2).
+- **Product Card Variant:** Users can choose between two variants of product cards (ProductCard1 or ProductCard2).
+- **Catalog Display:** Users can choose the view of how the catalog is displayed (view_all or carousel).
 
-To learn more about Next.js, take a look at the following resources:
+### Additional Features (Good to Have):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Cart Ability:** Users can add products to their cart and remove them.
+- **Bag Icon on NavBar:** Clicking on the bag icon opens a modal displaying the current cart values.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Implementation Details
 
-## Deploy on Vercel
+- **SSR Page:** Initial values are given, but they are updated when changed from the settings. (Note: Data updates are not persistent upon reload)
+- **Mobile-First Design:** The application is designed to be responsive for mobile devices and other media devices like desktop.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Install dependencies: `npm install`
+2. Run the development server: `npm run dev`
+3. Access the application:
+   - Catalog Page: (Catalog)[https://ecommerce-app-kappa-fawn.vercel.app/catalog]
+   - Settings Page: (settings)[https://ecommerce-app-kappa-fawn.vercel.appsettings] 
+4. Has Project Introduction: (intro)[https://ecommerce-app-kappa-fawn.vercel.app/]
+## Dependencies
+
+- Next.js: Framework for React.js applications
+- Tailwind CSS: Utility-first CSS framework
+- FontAwesome: Icon library for React
+
+## Folder Structure
+
+### `/app`
+- **`/components`**: Contains React components used in the application.
+  - **`/catalog`**: Contains catalog page logic.
+    - **`layout.js`**: Layout for the catalog page.
+    - **`page.js`**: Page logic importing components.
+  - **`/settings`**: Contains setting page logic.
+    - **`layout.js`**: Layout for the settings page.
+    - **`page.js`**: Page logic importing components.
+
+## Authors
+
+- Ravi Ranjan Yadav
+

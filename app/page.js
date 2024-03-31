@@ -1,4 +1,4 @@
-import Navbar1 from "./Conponents/Navbar1";
+import Navbar1 from "./catalog/Conponents/Navbar1";
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
         <section>
           <h2 className="text-xl font-semibold mb-2">Additional Features: </h2>
           <ul className="list-disc list-inside mb-4">
-            <li>Cart Ability: Users can add products to their cart and remove them. <strong>(NOT COMPLETED)</strong></li>
+            <li>Cart Ability: Users can add products to their cart and remove them. <strong>(Under Process)</strong></li>
             <li>Bag Icon on NavBar: Clicking on the bag icon opens a modal displaying the current cart values.</li>
           </ul>
         </section>

@@ -7,9 +7,9 @@ const Modal = ({ isOpen, onClose }) => {
 
 
   useEffect(() => {
-    if (isOpen) {
-      console.log(products);
-    }
+    // if (isOpen) {
+    //   console.log(products);
+    // }
   }, [isOpen]);
 
   if (!isOpen) return null;

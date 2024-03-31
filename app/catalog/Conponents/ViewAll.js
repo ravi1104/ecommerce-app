@@ -8,18 +8,15 @@ function ViewAll({ initialProducts, ProductCard, Catalog }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entries]) => {
-      // Checks if the observer entry is intersecting and if we have more products to load
       if (entries.isIntersecting && count <= 20) {
         fetNewProducts();
       }
     });
 
-    // Observing the 'loadMoreRef' element
     if (loadMoreRef.current) {
       observer.observe(loadMoreRef.current);
     }
 
-    // Cleanup function to unobserve when component unmounts
     return () => {
       if (loadMoreRef.current) {
         observer.unobserve(loadMoreRef.current);

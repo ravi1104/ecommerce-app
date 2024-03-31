@@ -32,8 +32,8 @@ function ProductCard2({ product, carousel }) {
     <div className="rounded-lg w-50 shadow-md flex flex-col flex-wrap sm:p-3 p-1 m-5 transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-br from-purple-400 to-pink-600">
       {nextProduct && (
         <div className="space-y-4 w-full">
-          <div key={nextProduct.id} className="w-full sm:flex rounded-lg overflow-hidden bg-white bg-opacity-90">
-            {carousel && <button onClick={fetchPrevProduct} className="block m-2 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">Prev product</button>}
+          <div key={nextProduct.id} className="w-full text-center sm:flex rounded-lg overflow-hidden bg-white bg-opacity-90">
+            {carousel && <button onClick={fetchPrevProduct} className="hidden sm:inline-block mx-auto mr-1 sm:mt-1 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">PREV</button>}
             <div className="flex justify-center items-center w-full h-48 sm:w-1/5">
               <Image src={nextProduct.image} alt={nextProduct.title} width={130} height={10} />
             </div>
@@ -53,9 +53,8 @@ function ProductCard2({ product, carousel }) {
             </div>
 
             {/* Heart icon */}
-
-
-            {carousel && <button onClick={fetchNextProduct} className="block m-2  px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">Next product</button>}
+            {carousel && <button onClick={fetchPrevProduct} className="sm:hidden inline-block mx-auto mr-1 sm:mt-1 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">PREV</button>}
+            {carousel && <button onClick={() => { fetchNextProduct() }} className="sm:inline-block mx-auto ml-1 mt-1 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">NEXT</button>}
           </div>
         </div>
       )}
