@@ -1,10 +1,10 @@
 "use client"
 const Loading = () => {
     return (
-        <>
-            <h1>Loading ...</h1>
-            {console.log("loading")}
-        </>
-    )
-}
+        <div className="flex items-center justify-center h-screen">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-900"></div>
+        </div>
+    );
+};
+
 export default Loading;
