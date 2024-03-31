@@ -3,27 +3,31 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import Modal from "./Modal";
 
 const Navbar1 = () => {
   const [areLinksVisible, setAreLinksVisible] = useState(false);
-
+  const [modal, setModal] = useState(false);
   const toggleLinksVisibility = () => {
     setAreLinksVisible(!areLinksVisible);
   };
-
+  function toggleModal(){
+    setModal(!modal);
+    console.log("modal");
+  }
   return (
-    <nav className="bg-gray-800 p-4 relative z-10 mb-5"> {/* Added relative positioning */}
+    <nav className="bg-gray-800 p-4 relative z-10 mb-5">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-xl sm:text-right font-bold ">
-        <Link href="/" className="text-white hover:text-gray-300">GG Shop</Link></div>
-        <span className="sm:hidden" onClick={toggleLinksVisibility} >
-          <FontAwesomeIcon className="text-white w-8 text-lg cursor-pointer" icon={faEllipsisVertical} />
+          <Link href="/" className="text-white hover:text-gray-300">GG Shop</Link></div>
+        <span  className="sm:hidden" onClick={toggleLinksVisibility} >
+          <FontAwesomeIcon  className="text-white w-8 text-lg cursor-pointer" icon={faEllipsisVertical} />
         </span>
         <span className="hidden sm:inline text-white">
           Navbar Type 1
         </span>
         <ul className={`hidden sm:flex flex-col sm:flex-row space-x-0 sm:space-x-4`}>
-          <li>
+          <li onClick={()=>toggleModal()}>
             <FontAwesomeIcon className="cursor-pointer text-white" icon={faCartShopping} />
           </li>
           <li>
@@ -34,7 +38,7 @@ const Navbar1 = () => {
             <Link href="/settings" className="text-white hover:text-gray-300">Settings</Link>
           </li>
         </ul>
-        <ul className={` absolute text-center text-lg top-full left-0 p-1 bg-gray-800 w-full flex flex-col sm:hidden  space-x-0 ${areLinksVisible ? 'flex' : 'hidden'}`}> 
+        <ul className={` absolute text-center text-lg top-full left-0 p-1 bg-gray-800 w-full flex flex-col sm:hidden  space-x-0 ${areLinksVisible ? 'flex' : 'hidden'}`}>
           <li>
             <Link href="/" className="text-white hover:text-gray-300">Home</Link>
           </li>
@@ -46,6 +50,7 @@ const Navbar1 = () => {
           </li>
         </ul>
       </div>
+      <Modal isOpen={modal} onClose={toggleModal}/>
     </nav>
   );
 };

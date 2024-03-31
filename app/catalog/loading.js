@@ -1,9 +1,9 @@
 "use client"
-const Loading=()=>{
-    return(
+const Loading = () => {
+    return (
         <>
-        <h1>Loading</h1>
-        {console.log("loading")}
+            <h1>Loading ...</h1>
+            {console.log("loading")}
         </>
     )
 }

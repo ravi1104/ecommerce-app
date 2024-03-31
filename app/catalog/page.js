@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar1 from "../Conponents/Navbar1";
 import Carousel from "../Conponents/Carousel";
-import ProductCard1 from "../Conponents/ProductCard1";
+import ProductCard2 from "../Conponents/ProductCard2";
 
 export const metadata = {
     title: 'Catalog'
@@ -17,7 +17,7 @@ async function first() {
     return (
         <>
             <Navbar1 />
-            <Carousel initialProducts={products} ProductCard={ProductCard1} Catalog={Carousel}/>
+            <Carousel initialProducts={products} ProductCard={ProductCard2} Catalog={Carousel}/>
         </>
     )
 }
