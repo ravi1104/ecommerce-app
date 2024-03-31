@@ -1,5 +1,5 @@
 # E-Commerce Application Readme
-
+[Hosted Link Here](https://ecommerce-app-kappa-fawn.vercel.app/settings)
 ## Overview
 
 This e-commerce application provides users with a seamless shopping experience. It consists of two main pages: the Catalog Page (/catalog) and the Settings Page (/settings). The Catalog Page is server-side rendered (SSR), while the Settings Page can be client-side rendered (CSR) if needed.
@@ -20,7 +20,7 @@ This e-commerce application provides users with a seamless shopping experience. 
 - **Product Card Variant:** Users can choose between two variants of product cards (ProductCard1 or ProductCard2).
 - **Catalog Display:** Users can choose the view of how the catalog is displayed (view_all or carousel).
 
-### Additional Features (Good to Have):
+### Additional Features :
 
 - **Cart Ability:** Users can add products to their cart and remove them.
 - **Bag Icon on NavBar:** Clicking on the bag icon opens a modal displaying the current cart values.
@@ -35,9 +35,9 @@ This e-commerce application provides users with a seamless shopping experience. 
 1. Install dependencies: `npm install`
 2. Run the development server: `npm run dev`
 3. Access the application:
-   - Catalog Page: (Catalog)[https://ecommerce-app-kappa-fawn.vercel.app/catalog]
-   - Settings Page: (settings)[https://ecommerce-app-kappa-fawn.vercel.appsettings] 
-4. Has Project Introduction: (intro)[https://ecommerce-app-kappa-fawn.vercel.app/]
+   - Catalog Page: [Access Catalog Page Here](https://ecommerce-app-kappa-fawn.vercel.app/catalog)
+   - Settings Page: [Access Settings Page Here](https://ecommerce-app-kappa-fawn.vercel.appsettings) 
+4. Has Project Introduction: [Access Intro Pge Here](https://ecommerce-app-kappa-fawn.vercel.app/)
 ## Dependencies
 
 - Next.js: Framework for React.js applications
