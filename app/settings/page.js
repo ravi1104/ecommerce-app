@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const First = () => {
@@ -8,65 +9,63 @@ const First = () => {
 
     useEffect(() => {
         document.title = "Settings";
-
-        // Function to update preference and localStorage
-        function updatePreference() {
-            const pref = {
-                navbar: navbar,
-                productCard: productCard,
-                catalog: catalog
-            }
-            const serializedPref = JSON.stringify(pref);
-            localStorage.setItem("pref", serializedPref);
-        }
-
-        // Update preference on component mount
-        updatePreference();
-    }, [navbar, productCard, catalog]); // Run effect when navbar, productCard, or catalog change
-
-    // Function to handle state change for navbar
-    const handleNavbarChange = (e) => {
-        setNavbar(e.target.value);
-    }
-
-    // Function to handle state change for productCard
-    const handleProductCardChange = (e) => {
-        setProductCard(e.target.value);
-    }
-
-    // Function to handle state change for catalog
-    const handleCatalogChange = (e) => {
-        setCatalog(e.target.value);
-    }
-
-    // Function to handle form submission (currently empty)
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // You can add further functionality here if needed
-        console.log(navbar,productCard,catalog)
-    }
+    }, [navbar, productCard, catalog]);
 
     return (
-        <>
-            <form id="form" onSubmit={handleSubmit}>
-                <label>Select Navbar type:</label>
-                <select value={navbar} onChange={handleNavbarChange}>
-                    <option value="nav1">Navbar 1</option>
-                    <option value="nav2">Navbar 2</option>
-                </select>
-                <label>Select ProductCard type:</label>
-                <select value={productCard} onChange={handleProductCardChange}>
-                    <option value="productCard1">ProductCard 1</option>
-                    <option value="productCard2">ProductCard 2</option>
-                </select>
-                <label>Select catalog display:</label>
-                <select value={catalog} onChange={handleCatalogChange}>
-                    <option value="view_all">View All</option>
-                    <option value="carousel">Carousel</option>
-                </select>
-                <button type="submit">Submit</button>
-            </form>
-        </>
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+            <div className="w-full max-w-xs">
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="navbar">
+                        Select Navbar type:
+                    </label>
+                    <select
+                        id="navbar"
+                        className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={navbar}
+                        onChange={(e) => setNavbar(e.target.value)}
+                    >
+                        <option value="nav1">Navbar 1</option>
+                        <option value="nav2">Navbar 2</option>
+                    </select>
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="productCard">
+                        Select ProductCard type:
+                    </label>
+                    <select
+                        id="productCard"
+                        className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={productCard}
+                        onChange={(e) => setProductCard(e.target.value)}
+                    >
+                        <option value="productCard1">ProductCard 1</option>
+                        <option value="productCard2">ProductCard 2</option>
+                    </select>
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="catalog">
+                        Select catalog display:
+                    </label>
+                    <select
+                        id="catalog"
+                        className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={catalog}
+                        onChange={(e) => setCatalog(e.target.value)}
+                    >
+                        <option value="view_all">View All</option>
+                        <option value="carousel">Carousel</option>
+                    </select>
+                </div>
+
+                <Link href={`/catalog/pref?nav=${navbar}&card=${productCard}&catalog=${catalog}`}>
+                    <p className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                        Submit
+                    </p>
+                </Link>
+            </div>
+        </div>
     )
 }
 

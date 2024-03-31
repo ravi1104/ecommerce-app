@@ -1,11 +1,50 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState, useRef } from 'react';
 
-function ViewAll() {
+function ViewAll({ initialProducts, ProductCard, Catalog }) {
+  const [products, setProducts] = useState(initialProducts);
+  const [count, setCount] = useState(10);
+  const loadMoreRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entries]) => {
+      // Checks if the observer entry is intersecting and if we have more products to load
+      if (entries.isIntersecting && count <= 20) {
+        fetNewProducts();
+      }
+    });
+
+    // Observing the 'loadMoreRef' element
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    // Cleanup function to unobserve when component unmounts
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [count, products]);
+
+  async function fetNewProducts() {
+    if (count > 20) {
+      return;
+    }
+    const res = await fetch(`https://fakestoreapi.com/products/${count}`);
+    setCount((prevCount) => prevCount + 1);
+    const data = await res.json();
+    setProducts((prevProducts) => [...prevProducts, data]);
+  }
+
   return (
-    <div>
-      
+    <div className="bg-white sm:flex flex-wrap flex-col rounded-lg shadow-md p-4 overflow-auto">
+      {products.map((product, index) => (
+        <ProductCard product={product} key={index} />
+      ))}
+      <div ref={loadMoreRef} className="h-10"></div>
     </div>
-  )
+  );
 }
 
-export default ViewAll
+export default ViewAll;

@@ -1,24 +1,23 @@
 import React from "react";
 import Navbar1 from "../Conponents/Navbar1";
-import ProductCard1 from "../Conponents/ProductCard1";
 import Carousel from "../Conponents/Carousel";
+import ProductCard1 from "../Conponents/ProductCard1";
 
-export const metadata={
-    title:'Catalog'
+export const metadata = {
+    title: 'Catalog'
 }
 export async function getProducts() {
     const res = await fetch(`https://fakestoreapi.com/products`)
     const data = await res.json()
-    return { props: [ data ] }
-  }
-async function first(){
-    const projects=await getProducts();
-    
-    return(
-        <>  
-        <Navbar1 />
-        <ProductCard1 projects={projects} />
-        <Carousel/>
+    return data
+}
+async function first() {
+    const products = await getProducts();
+    // navbar 1 Carousel and ProductCard 1 on Default
+    return (
+        <>
+            <Navbar1 />
+            <Carousel initialProducts={products} ProductCard={ProductCard1} Catalog={Carousel}/>
         </>
     )
 }

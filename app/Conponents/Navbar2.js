@@ -1,21 +1,30 @@
+import Link from "next/link";
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBabyCarriage, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 const Navbar2 = () => {
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg font-semibold">My E-commerce</div>
+    <nav className="bg-violet-300 rounded relative p-4">
+      <div className="container mx-auto flex rounded justify-between items-center">
+        <div className="text-white text-xm font-bold sm:text-xl sm:block">
+          <span className="hidden text-white text-sm sm:inline sm:text-lg">GG shop </span>
+          <span className="sm:inline text-white text-xl font-bold "><FontAwesomeIcon icon={faBabyCarriage} /></span>
+        </div>
+        <span className="hidden sm:inline">
+            <p className="text-white">Navbar Type 2</p>
+          </span>
         <ul className="flex space-x-4">
+          <li className="hidden sm:inline">
+            <FontAwesomeIcon className="text-white" icon={faCartShopping} />
+          </li>
+      
           <li>
-            <a href="#" className="text-white hover:text-gray-200">Home</a>
+            <Link href="/catalog" className="text-white hover:text-blue-700">Catalog</Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-gray-200">Catalog</a>
+            <Link href="/settings" className="text-white hover:text-blue-700">Settings</Link>
           </li>
-          <li>
-            <a href="#" className="text-white hover:text-gray-200">Settings</a>
-          </li>
-          {/* Add more nav items as needed */}
+
         </ul>
       </div>
     </nav>

@@ -1,9 +1,25 @@
-import React from 'react'
+import Navbar1 from '@/app/Conponents/Navbar1';
+import Carousel from '@/app/Conponents/Carousel';
+import React from 'react';
+import ProductCard1 from '@/app/Conponents/ProductCard1';
+import { getProducts } from '../page';
+import ProductCard2 from '@/app/Conponents/ProductCard2';
+import ViewAll from '@/app/Conponents/ViewAll';
+import Navbar2 from '@/app/Conponents/Navbar2';
 
-function Product_Card1() {
-  return (
-    <div>Product_Card1</div>
-  )
+export default async function Prefrence({ searchParams }) {
+  const products = await getProducts();
+  const { nav, card, catalog } = searchParams;
+  console.log(catalog);
+  const ProductCard = (card == "productCard1") ? ProductCard1 : ProductCard2;
+  const Catalog = (catalog == "carousel") ? ViewAll : Carousel;
+
+  return <div>
+    {(nav == "nav1") ? <Navbar1 /> : <Navbar2 />}
+    {
+      (catalog == "carousel") ?
+        <Carousel initialProducts={products} ProductCard={ProductCard} Catalog={Catalog} /> :
+        <ViewAll initialProducts={products} ProductCard={ProductCard} Catalog={Catalog} />
+    }
+  </div>;
 }
-
-export default Product_Card1

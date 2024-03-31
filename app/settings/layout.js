@@ -1,9 +1,9 @@
+import Navbar1 from "../Conponents/Navbar1";
+
 export default function Layout({children}) {
   return (
     <div>
-        <nav>
-            simple nav
-        </nav>
+        <Navbar1/>
         <main>
             {children}
         </main>
