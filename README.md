@@ -36,7 +36,7 @@ This e-commerce application provides users with a seamless shopping experience. 
 2. Run the development server: `npm run dev`
 3. Access the application:
    - Catalog Page: [Access Catalog Page Here](https://ecommerce-app-kappa-fawn.vercel.app/catalog)
-   - Settings Page: [Access Settings Page Here](https://ecommerce-app-kappa-fawn.vercel.appsettings) 
+   - Settings Page: [Access Settings Page Here](https://ecommerce-app-kappa-fawn.vercel.app/settings) 
 4. Has Project Introduction: [Access Intro Pge Here](https://ecommerce-app-kappa-fawn.vercel.app/)
 ## Dependencies
 
