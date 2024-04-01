@@ -47,6 +47,10 @@ const Navbar1 = () => {
           <li>
             <Link href="/settings" className="text-white hover:text-gray-300">Settings</Link>
           </li>
+          <li onClick={() => toggleModal()}>
+            <FontAwesomeIcon className="cursor-pointer text-white" icon={faCartShopping} />
+            <span className="text-white hover:text-gray-300" > Cart</span>
+          </li>
         </ul>
       </div>
       <Modal isOpen={modal} onClose={toggleModal} />

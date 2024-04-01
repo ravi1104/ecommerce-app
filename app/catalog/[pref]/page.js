@@ -1,11 +1,11 @@
-import Navbar1 from '@/app/catalog/Conponents/Navbar1';
-import Carousel from '@/app/catalog/Conponents/Carousel';
+import Navbar1 from '@/app/Conponents/Navbar1';
+import Carousel from '@/app/Conponents/Carousel';
 import React from 'react';
-import ProductCard1 from '@/app/catalog/Conponents/ProductCard1';
+import ProductCard1 from '@/app/Conponents/ProductCard1';
 import { getProducts } from '../page';
-import ProductCard2 from '@/app/catalog/Conponents/ProductCard2';
-import ViewAll from '@/app/catalog/Conponents/ViewAll';
-import Navbar2 from '@/app/catalog/Conponents/Navbar2';
+import ProductCard2 from '@/app/Conponents/ProductCard2';
+import ViewAll from '@/app/Conponents/ViewAll';
+import Navbar2 from '@/app/Conponents/Navbar2';
 
 export default async function Prefrence({ searchParams }) {
   const products = await getProducts();

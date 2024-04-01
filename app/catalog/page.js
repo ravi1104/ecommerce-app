@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar1 from "./Conponents/Navbar1";
-import Carousel from "./Conponents/Carousel";
-import ProductCard2 from "./Conponents/ProductCard2";
+import Navbar1 from "../Conponents/Navbar1";
+import Carousel from "../Conponents/Carousel";
+import ProductCard2 from "../Conponents/ProductCard2";
 
 export const metadata = {
     title: 'Catalog'

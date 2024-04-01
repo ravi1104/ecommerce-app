@@ -14,15 +14,15 @@ const Navbar2 = () => {
           <p className="text-white">Navbar Type 2</p>
         </span>
         <ul className="flex space-x-4">
-          <li className="hidden sm:inline">
+          <li className="sm:inline">
             <FontAwesomeIcon className="text-white" icon={faCartShopping} />
           </li>
 
           <li>
-            <Link href="/catalog" className="text-white hover:text-blue-700">Catalog</Link>
+            <Link href="/catalog" className="sm:text-base text-sm text-white hover:text-blue-700">Catalog</Link>
           </li>
           <li>
-            <Link href="/settings" className="text-white hover:text-blue-700">Settings</Link>
+            <Link href="/settings" className="sm:text-base text-sm text-white hover:text-blue-700">Settings</Link>
           </li>
 
         </ul>
