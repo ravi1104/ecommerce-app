@@ -30,7 +30,7 @@ export default function Home() {
         <section>
           <h2 className="text-xl font-semibold mb-2">Additional Features: </h2>
           <ul className="list-disc list-inside mb-4">
-            <li>Cart Ability: Users can add products to their cart and remove them. <strong>(now add and remove works ::: CSS under Process)</strong></li>
+            <li>Cart Ability: Users can add products to their cart and remove them. <strong>(Only Navbar 1 Cart working :: CSS under Process)</strong></li>
             <li>Bag Icon on NavBar: Clicking on the bag icon opens a modal displaying the current cart values.</li>
           </ul>
         </section>
