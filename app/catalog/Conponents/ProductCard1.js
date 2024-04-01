@@ -29,13 +29,13 @@ function ProductCard1({ product, carousel }) {
   }
 
   return (
-    <div className="bg-gray-200 rounded-lg shadow-md p-4 m-5 sm:flex transition duration-300 ease-in-out transform hover:bg-gray-300">
+    <div className="bg-gray-200 rounded-lg shadow-md p-2 m-4 sm:p-3  sm:flex transition duration-300 ease-in-out transform hover:bg-gray-300">
       {nextProduct && (
-        <div className="space-y-4 w-full">
+        <div className="space-y-3 w-full">
           <div key={nextProduct.id} className="w-full sm:flex rounded-lg text-center overflow-hidden">
             {carousel && <button onClick={fetchPrevProduct} className="hidden sm:inline-block mx-auto mr-1 sm:mt-1 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">PREV</button>}
             <div className="flex justify-center mt-2 items-center w-full sm:w-1/5">
-              <Image src={nextProduct.image} alt={nextProduct.title} width={100} height={100} />
+              <Image className='sm:w-3/4 w-1/2' src={nextProduct.image} alt="img" width={50} height={50} />
             </div>
 
             <div className="sm:p-4 p-2 w-full sm:w-4/5">

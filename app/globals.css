@@ -13,3 +13,9 @@
     text-wrap: balance;
   }
 }
+
+img{
+  height: inherit;
+  min-width: 10%;
+  max-width: 100px;
+}

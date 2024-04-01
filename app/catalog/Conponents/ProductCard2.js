@@ -35,7 +35,7 @@ function ProductCard2({ product, carousel }) {
           <div key={nextProduct.id} className="w-full text-center sm:flex rounded-lg overflow-hidden bg-white bg-opacity-90">
             {carousel && <button onClick={fetchPrevProduct} className="hidden sm:inline-block mx-auto mr-1 sm:mt-1 px-4 py-2 bg-blue-500 text-white rounded-md font-semibold focus:outline-none">PREV</button>}
             <div className="flex justify-center items-center w-full h-48 sm:w-1/5">
-              <Image src={nextProduct.image} alt={nextProduct.title} width={130} height={10} />
+              <Image className='sm:w-3/4 w-1/2' src={nextProduct.image} alt={nextProduct.title} width={100} height={100} priority={true} />
             </div>
 
             <div className=" relative p-4 w-full sm:w-4/5">
