@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { addToCart } from './Modal';
 
 function ProductCard2({ product, carousel }) {
   const [products, setProducts] = useState([product]);
@@ -50,6 +51,7 @@ function ProductCard2({ product, carousel }) {
               <h3 className="sm:text-lg font-semibold text-yellow-500">{currProduct.title}</h3>
               <span className="text-red relative cursor-pointer transform  hover:scale-110 transition duration-300">
                 <FontAwesomeIcon
+                  onClick={()=>{addToCart(currProduct)}}
                   icon={faHeart}
                   size="lg"
                   className="text-slate-700 hover:text-pink-500 transition-colors duration-300"
