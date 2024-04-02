@@ -1,5 +1,4 @@
 "use client"
-"use client"
 import React, { useEffect, useState } from 'react';
 
 // Function to fetch cart items from local storage

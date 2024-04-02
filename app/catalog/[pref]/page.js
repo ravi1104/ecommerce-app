@@ -1,27 +1,20 @@
-import Navbar1 from '@/app/Conponents/Navbar1';
+"use server"
 import Carousel from '@/app/Conponents/Carousel';
 import React from 'react';
-import ProductCard1 from '@/app/Conponents/ProductCard1';
 import { getProducts } from '@/app/actions';
-import ProductCard2 from '@/app/Conponents/ProductCard2';
 import ViewAll from '@/app/Conponents/ViewAll';
-import Navbar2 from '@/app/Conponents/Navbar2';
+
+// getting initial products from server
+const products=await getProducts();
 
 export default async function Prefrence({ searchParams }) {
-  const products = await getProducts();
-
-  const { nav, card, catalog } = searchParams;
-  // selects nav card catalog based on parameters
-  const ProductCard = (card == "productCard1") ? ProductCard1 : ProductCard2;
-
-  const Catalog = (catalog == "carousel") ? ViewAll : Carousel;
-
+  const { catalog } = searchParams;
+  // if catalog= carousel then component Carousel else View all component
   return <div>
-    {(nav == "nav1") ? <Navbar1 /> : <Navbar2 />}
     {
       (catalog == "carousel") ?
-        <Carousel initialProducts={products} ProductCard={ProductCard} Catalog={Catalog} /> :
-        <ViewAll initialProducts={products} ProductCard={ProductCard} Catalog={Catalog} />
+        <Carousel userPref={searchParams} /> :
+        <ViewAll userPref={searchParams} initialProducts={products}/>
     }
   </div>;
 }
