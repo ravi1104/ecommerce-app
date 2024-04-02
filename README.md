@@ -2,7 +2,7 @@
 [Hosted Link Here](https://ecommerce-app-kappa-fawn.vercel.app/settings)
 ## Overview
 
-This e-commerce application provides users with a seamless shopping experience. It consists of two main pages: the Catalog Page (/catalog) and the Settings Page (/settings). The Catalog Page is server-side rendered (SSR), while the Settings Page can be client-side rendered (CSR) if needed.
+This e-commerce application provides users with a seamless shopping experience. It consists of two main pages: the Catalog Page (/catalog) and the Settings Page (/settings). The Catalog Page is server-side rendered (SSR), while the Settings Page can be client-side rendered (CSR).
 
 ## Features
 
@@ -36,7 +36,7 @@ This e-commerce application provides users with a seamless shopping experience. 
 2. Run the development server: `npm run dev`
 3. Access the application:
    - Catalog Page: [Access Catalog Page Here](https://ecommerce-app-kappa-fawn.vercel.app/catalog)
-   - Settings Page: [Access Settings Page Here](https://ecommerce-app-kappa-fawn.vercel.appsettings) 
+   - Settings Page: [Access Settings Page Here](https://ecommerce-app-kappa-fawn.vercel.app/settings) 
 4. Has Project Introduction: [Access Intro Pge Here](https://ecommerce-app-kappa-fawn.vercel.app/)
 ## Dependencies
 
@@ -47,12 +47,24 @@ This e-commerce application provides users with a seamless shopping experience. 
 ## Folder Structure
 
 ### `/app`
-- **`/components`**: Contains React components used in the application.
+  - **`/components`**: Contains React components used in the application.
+      - **`Carousel.js`**: Layout for the catalog page with Carousel with next and prev buttons.
+      - **`ViewAll.js`**: Contains Logic to Display of Catalog Page Which Displays All Products with infinite Scroll.
+      - **`Model.js`**: This Component handels all Cart Related Functions Displaying them on Model.  
+      - **`Navbar1.js`**: Contains Logic to Navbar type 1.
+      - **`Navbar2.js`**: Contains Logic to Navbar type 2.
+      - **`ProductCard1.js`**: Contains Logic to Product Display Card type 1.
+      - **`ProductCard2.js`**: Contains Logic to Product Display Card type 2.
   - **`/catalog`**: Contains catalog page logic.
-    - **`layout.js`**: Layout for the catalog page.
-    - **`page.js`**: Page logic importing components.
+      - **`layout.js`**: Layout for the catalog page.
+      - **`loading.js`**: Loading with center spinner for the catalog page.  
+      - **`page.js`**: Page logic importing components.
+      - **`[pref]`**: Prefernece by Querry Parameters for the catalog page.
+          - **`loading.js`**: Loading with center spinner for the catalog page.  
+          - **`page.js`**: Page logic importing components.
   - **`/settings`**: Contains setting page logic.
     - **`layout.js`**: Layout for the settings page.
+    - - **`loading.js`**: Loading with center spinner for the catalog page.
     - **`page.js`**: Page logic importing components.
 
 ## Authors
