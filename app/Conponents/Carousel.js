@@ -1,4 +1,6 @@
 "use client"
+
+// Carousel Component
 function Carousel({ initialProducts, ProductCard, Catalog }) {
   
   return (

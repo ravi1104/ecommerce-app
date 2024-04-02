@@ -1,6 +1,8 @@
+"use Server"
 import Navbar1 from "./Conponents/Navbar1";
 
 export default function Home() {
+
   return (
     <main >
       <Navbar1 />

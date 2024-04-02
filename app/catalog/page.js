@@ -2,16 +2,13 @@ import React from "react";
 import Navbar1 from "../Conponents/Navbar1";
 import Carousel from "../Conponents/Carousel";
 import ProductCard2 from "../Conponents/ProductCard2";
+import { getProducts } from "../actions";
 
+// Change of title if Catalog Page is fetched from server
 export const metadata = {
     title: 'Catalog'
 }
-export async function getProducts() {
-    const res = await fetch(`https://fakestoreapi.com/products?limit=10`)
-    const data = await res.json()
-    return data
 
-}
 async function first() {
     const products = await getProducts();
     // navbar 1 Carousel and ProductCard 1 on Default

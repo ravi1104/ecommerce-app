@@ -1,15 +1,19 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react';
+import { getNextProduct } from '../actions';
+
+// view all Component which implements infinite scroll
 
 function ViewAll({ initialProducts, ProductCard, Catalog }) {
   const [products, setProducts] = useState(initialProducts);
-  const [count, setCount] = useState(10);
   const loadMoreRef = useRef(null);
+
+  // use of useRef to get IntersectionObserver
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entries]) => {
-      if (entries.isIntersecting && count <= 20) {
-        fetNewProducts();
+      if (entries.isIntersecting) {
+        fetchNewProducts();
       }
     });
 
@@ -22,18 +26,14 @@ function ViewAll({ initialProducts, ProductCard, Catalog }) {
         observer.unobserve(loadMoreRef.current);
       }
     };
-  }, [count, products]);
+  }, [ products]);
 
-  async function fetNewProducts() {
-    if (count > 20) {
-      return;
-    }
-    const res = await fetch(`https://fakestoreapi.com/products/${count}`);
-    setCount((prevCount) => prevCount + 1);
-    const data = await res.json();
+  // server side getNextProduct
+  
+  async function fetchNewProducts() {
+    const data=await getNextProduct();
     setProducts((prevProducts) => [...prevProducts, data]);
   }
-
   return (
     <div className="bg-white sm:flex flex-wrap flex-col rounded-lg shadow-md p-4 overflow-auto">
       {products.map((product, index) => (

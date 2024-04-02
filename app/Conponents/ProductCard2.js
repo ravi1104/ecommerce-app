@@ -5,37 +5,33 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { addToCart } from './Modal';
+import { getNextProduct } from '../actions';
 
+// product card type 2
 function ProductCard2({ product, carousel }) {
   const [products, setProducts] = useState([product]);
   const [index, setIndex] = useState(0);
-  const [count, setCount] = useState(10);
-
+  // used products array to make logic of carousel next and prev
   useEffect(() => {
 
   }, [products]);
-
+  // used getNextProduct defined with "use server" to get next data
   async function fetchNextProduct() {
     try {
-      if (count > 20) {
-        return;
-      }
-      const res = await fetch(`https://fakestoreapi.com/products/${count}`);
-      const newProduct = await res.json();
+      const newProduct = await getNextProduct();
       setProducts([...products, newProduct]);
       setIndex(index + 1);
-      setCount(count + 1);
     } catch (error) {
       console.error("Error fetching next product:", error);
     }
   }
-
+  // fetching previos prodct form array sotred
   function fetchPrevProduct() {
     if (index > 0) {
       setIndex(index - 1);
     }
   }
-
+  // incrementing index of array for storing next product
   const currProduct = products[index];
   return (
     <div className="rounded-lg w-50 shadow-md flex flex-col flex-wrap sm:p-3 p-1 m-5 transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-br from-purple-400 to-pink-600">
@@ -51,7 +47,7 @@ function ProductCard2({ product, carousel }) {
               <h3 className="sm:text-lg font-semibold text-yellow-500">{currProduct.title}</h3>
               <span className="text-red relative cursor-pointer transform  hover:scale-110 transition duration-300">
                 <FontAwesomeIcon
-                  onClick={()=>{addToCart(currProduct)}}
+                  onClick={() => { addToCart(currProduct) }}
                   icon={faHeart}
                   size="lg"
                   className="text-slate-700 hover:text-pink-500 transition-colors duration-300"
